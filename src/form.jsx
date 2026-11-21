@@ -7,12 +7,12 @@ const levelRange = ["1", "2", "3", "4", "5"]
 
 const esquema = z.object({
     name: z.string(),
-    age: z.number,
-    color: z.string,
-    menaceLevel: z.number,
-    stinkiness: z.number,
-    sleepiness: z.number,
-    silliness: z.number,
+    age: z.number(),
+    color: z.string(),
+    menaceLevel: z.coerce.number(),
+    stinkiness: z.coerce.number(),
+    sleepiness: z.coerce.number(),
+    silliness: z.coerce.number(),
 
 
 })
