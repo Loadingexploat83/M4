@@ -3,7 +3,7 @@ import { useQuery, useQueryClient } from '@tanstack/react-query'
 import { fetchCars, toggleCorruptData, simulateCorruptData } from './api/Api.jsx'
 import { carKeys  } from './api/carKeys.jsx'
 
-import './App.css'
+import './css/App.css'
 import CatForm from './components/form.jsx'
 
 

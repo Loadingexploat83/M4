@@ -95,7 +95,7 @@ function CatForm() {
             <input 
                 id='age'
                 {...register("age")}
-                type="text"
+                type="number"
                 placeholder='Edad numerica'
             />
             {errors.age && <div role = "alert">{errors.age.message}</div>}
