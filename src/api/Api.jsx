@@ -57,7 +57,7 @@ export async function createCar(newCar){
     const scores = {
         chaos: Math.round(((newCar.menaceLevel + newCar.silliness) / 10) * 100),
         stink: newCar.stinkiness * 20,
-        cozy: Math.max(0, Math.round((newCar.sleepiness + newCar.silliness - Math.floor(newCar.stinkiness / 2) / 15 ) * 100)) ,
+        cozy: Math.round(Math.max(0, (newCar.sleepiness + newCar.silliness - Math.floor(newCar.stinkiness / 2)) / 10) * 100),
         sweetheart: newCar.silliness *20,
         total: Math.round(((newCar.menaceLevel + newCar.stinkiness + newCar.sleepiness + newCar.silliness) / 20) * 100),
     };

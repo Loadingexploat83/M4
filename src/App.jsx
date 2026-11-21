@@ -49,7 +49,7 @@ function App() {
             {cars.map((car) => (
               <li key={car.id}>
                 <strong>{car.name}</strong> ({car.color}, {car.age} años) — Total:{" "}
-                {car.scores.total}/100 [Agente del Caos: {car.scores.chaos}% | Stinkiness: {car.scores.stink}% | Calmadito: {car.scores.cozy}% | Encantador: {car.scores.sweetheart}%]
+                {car.scores.total}/100 [Agente del Caos: {car.scores.chaos}% | Stinkiness: {car.scores.stink}% | Coziness: {car.scores.cozy}% | Encantador: {car.scores.sweetheart}%]
               </li>
             ))}
           </ul>
