@@ -22,7 +22,7 @@ let CarDB = [
         name: "StinkMaster",
         age: 3,
         color: "Naranja",
-        scores: {chaos: 80, stink: 100, cozy: 10, sweetheart: 0},
+        scores: {chaos: 80, stink: 100, cozy: 10, sweetheart: 0, total: 80},
     },
 
 ];
@@ -55,9 +55,9 @@ export async function createCar(newCar){
     await new Promise((r) => setTimeout (r, 600));
 
     const scores = {
-        chas: Math.round(((newCar.menaceLevel + newCar.silliness) / 10) * 100),
+        chaos: Math.round(((newCar.menaceLevel + newCar.silliness) / 10) * 100),
         stink: newCar.stinkiness * 20,
-        cozy: Math.round((newCar.sleepiness + newCar.silliness - Math.floor(newCar.stinkiness / 2) ) / 15) * 100,
+        cozy: Math.max(0, Math.round((newCar.sleepiness + newCar.silliness - Math.floor(newCar.stinkiness / 2) / 15 ) * 100)) ,
         sweetheart: newCar.silliness *20,
         total: Math.round(((newCar.menaceLevel + newCar.stinkiness + newCar.sleepiness + newCar.silliness) / 20) * 100),
     };
