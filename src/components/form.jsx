@@ -38,7 +38,7 @@ const esquema = z.object({
 );
 
 function CatForm() {
-    const queryClient = useQueryClient;
+    const queryClient = useQueryClient();
   const {
     register, 
     handleSubmit,

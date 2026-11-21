@@ -9,7 +9,7 @@ import CatForm from './components/form.jsx'
 
 
 function App() { 
-  const queryClient = useQueryClient; // pillamos el queryClient que hay en main.jsx
+  const queryClient = useQueryClient(); // pillamos el queryClient que hay en main.jsx
   const [corruptMode, setCorruptMode] = useState(simulateCorruptData);
   const {
     data: cars = [], // renombra data a cars y le pone un array vacio por defecto
@@ -49,7 +49,7 @@ function App() {
             {cars.map((car) => (
               <li key={car.id}>
                 <strong>{car.name}</strong> ({car.color}, {car.age} años) — Total:{" "}
-                {car.scores.total}/100 [Caos: {car.scores.chaos}% | Peste: {car.scores.stink}% | Siesta: {car.scores.coziness}%]
+                {car.scores.total}/100 [Agente del Caos: {car.scores.chaos}% | Stinkiness: {car.scores.stink}% | Calmadito: {car.scores.cozy}% | Encantador: {car.scores.sweetheart}%]
               </li>
             ))}
           </ul>
