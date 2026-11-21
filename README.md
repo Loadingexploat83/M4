@@ -20,4 +20,4 @@ M4 · Full Contact Forms
 
 ## Autopsia
 
-    Por ahora la aplicacion sigue en progreso, y no se a tenido que hacer ninguna decisión crítica
+    Una decision critica que se tomo en el proyecto fue el hecho de que la IA queria que toda la parte del formulario estuviese en el App, en vez de separar toda esa parte a un componente, descarte esta opción debido a que de esta manera el proyecto es mas modular y hace mas uso de las propiedades de React. 
