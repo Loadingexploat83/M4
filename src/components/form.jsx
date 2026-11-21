@@ -82,7 +82,7 @@ function CatForm() {
         <div>
             <label htmlFor='name'> Nombre del gatete: </label>
             <input 
-                id = "name "
+                id = "name"
                 {...register("name")}
                 type="text"
                 placeholder='StinkMaster'
