@@ -38,7 +38,7 @@ function CatForm() {
     setError, 
     formState: {errors, isSubmitting}} = useForm({defaultValues:{
         name: "",
-        age: 2,
+        age: "",
         color:"",
     }, resolver: zodResolver(esquema),
     });
@@ -69,10 +69,10 @@ function CatForm() {
         </div>
 
         <div>
-            <label htmlFor='age'>Edad</label>
-            <input {...register("age", {valueAsNumber: true})}type="range"
-            min="0"
-            max="25"
+            <label htmlFor='age'>Edad: </label>
+            <input {...register("age", {valueAsNumber: true})}
+                type="text"
+                placeholder='Edad numerica'
             />
             {errors.age && <div>{errors.age.message}</div>}
         </div>
@@ -92,60 +92,40 @@ function CatForm() {
         </div>
         <div>
             <label htmlFor='menaceLevel'>Nivel de Amenaza: </label>
-            {levelRange.map((level) => (
-                <label key={level}>
-                    <input {...register("menaceLevel")}
-                        type="radio" 
-                        value={level}
-                    />
-                    {level}
-                </label>
-            ))}
+            <input {...register("menaceLevel", {valueAsNumber: true})}type="range"
+                min="1"
+                max="5"
+            />
             
             {errors.menaceLevel && <div>{errors.menaceLevel.message}</div>}
         </div>
 
         <div>
-            <label htmlFor='stinkiness'>Stinkines: </label>
-            {levelRange.map((level) => (
-                <label key={level}>
-                    <input {...register("stinkiness")}
-                        type="radio" 
-                        value={level}
-                    />
-                    {level}
-                </label>
-            ))}
+            <label htmlFor='stinkiness'>Stinkiness: </label>
+            <input {...register("stinkiness", {valueAsNumber: true})}type="range"
+                min="1"
+                max="5"
+            />
             
             {errors.stinkiness && <div>{errors.stinkiness.message}</div>}
         </div>
         
         <div>
             <label htmlFor='sleepiness'>Sleepiness: </label>
-            {levelRange.map((level) => (
-                <label key={level}>
-                    <input {...register("sleepiness")}
-                        type="radio" 
-                        value={level}
-                    />
-                    {level}
-                </label>
-            ))}
+            <input {...register("sleepiness", {valueAsNumber: true})}type="range"
+                min="1"
+                max="5"
+            />
             
             {errors.sleepiness && <div>{errors.sleepiness.message}</div>}
         </div>
 
         <div>
             <label htmlFor='silliness'>Silliness: </label>
-            {levelRange.map((level) => (
-                <label key={level}>
-                    <input {...register("silliness")}
-                        type="radio" 
-                        value={level}
-                    />
-                    {level}
-                </label>
-            ))}
+            <input {...register("silliness", {valueAsNumber: true})}type="range"
+                min="1"
+                max="5"
+            />
             
             {errors.silliness && <div>{errors.silliness.message}</div>}
         </div>
