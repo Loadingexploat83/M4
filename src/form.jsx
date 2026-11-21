@@ -3,7 +3,8 @@ import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import {z} from 'zod'
 
-const levelRange = ["1", "2", "3", "4", "5"]
+const levelRange = ["1", "2", "3", "4", "5"];
+const colors = ["Naranja", "Negro", "Calico", "Blanco", "Tabby"];
 
 const esquema = z.object({
     name: z
@@ -79,7 +80,7 @@ function CatForm() {
 
         <div>
             <label htmlFor='color'>Color: </label>
-            {["Naranja", "Negro", "Calico", "Blanco", "Tabby"].map((colorOption) => (
+            {colors.map((colorOption) => (
                 <label key={colorOption}>
                     <input {...register("color")}
                         type="radio" 
