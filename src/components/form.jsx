@@ -10,9 +10,11 @@ const colors = ["Naranja", "Negro", "Calico", "Blanco", "Tabby"];
 const esquema = z.object({
     name: z
         .string()
+        .trim()
         .min(1, "Su nombre debe tener al menos un caracter"),
     age: z
         .coerce.number({invalid_type_error: "escribe une edad valida"})
+        .int("La edad debe ser un numero entero")
         .min(0, "La edad minima es 0"),
 
     color: z.string().min(1, "Selecciona un color"),
@@ -86,8 +88,10 @@ function CatForm() {
                 {...register("name")}
                 type="text"
                 placeholder='StinkMaster'
+                aria-invalid={!!errors.name}
+                aria-describedby={errors.name? "error-name" :undefined}
             />
-            {errors.name && <div role ="alert">{errors.name.message}</div>}
+            {errors.name && <div id="error-name" role ="alert">{errors.name.message}</div>}
         </div>
 
         <div>
@@ -97,22 +101,31 @@ function CatForm() {
                 {...register("age")}
                 type="number"
                 placeholder='Edad numerica'
+                aria-invalid={!!errors.age}
+                aria-describedby={errors.age? "error-age" :undefined}
             />
-            {errors.age && <div role = "alert">{errors.age.message}</div>}
+            {errors.age && <div id="error-age" role = "alert">{errors.age.message}</div>}
         </div>
 
-        <fieldset>
+        <fieldset
+            aria-invalid={!!errors.color}
+            aria-describedby={errors.color ? "error-name" :undefined}>
             <legend>Color: </legend>
             {colors.map((colorOption) => (
                 <label key={colorOption}>
                     <input {...register("color")}
                         type="radio" 
                         value={colorOption}
+                        
                     />{colorOption}
                 </label>
             ))}
             
-            {errors.color && <div role='alert'>{errors.color.message}</div>}
+           {errors.color && (
+                <div id="error-color" role="alert" style={{ width: "100%" }}>
+                    {errors.color.message}
+                </div>
+            )}
         </fieldset>
         <div>
             <label htmlFor='menaceLevel'>Nivel de Amenaza ({menace}/5) </label>
@@ -122,9 +135,11 @@ function CatForm() {
                 type="range"
                 min="1"
                 max="5"
+                aria-invalid={!!errors.menaceLevel}
+                aria-describedby={errors.menaceLevel? "error-age" :undefined}
             />
             
-            {errors.menaceLevel && <div role='alert'>{errors.menaceLevel.message}</div>}
+            {errors.menaceLevel && <div id='error-menaceLevel' role='alert'>{errors.menaceLevel.message}</div>}
         </div>
 
         <div>
@@ -135,9 +150,11 @@ function CatForm() {
                 type="range"
                 min="1"
                 max="5"
+                aria-invalid={!!errors.stinkiness}
+                aria-describedby={errors.stinkiness? "error-age" :undefined}
             />
             
-            {errors.stinkiness && <div role="alert">{errors.stinkiness.message}</div>}
+            {errors.stinkiness && <div id='stinkiness' role="alert">{errors.stinkiness.message}</div>}
         </div>
         
         <div>
@@ -148,9 +165,11 @@ function CatForm() {
                 type="range"
                 min="1"
                 max="5"
+                aria-invalid={!!errors.sleepiness}
+                aria-describedby={errors.sleepiness? "error-age" :undefined}
             />
             
-            {errors.sleepiness && <div role='alert'>{errors.sleepiness.message}</div>}
+            {errors.sleepiness && <div id = "sleepiness"role='alert'>{errors.sleepiness.message}</div>}
         </div>
 
         <div>
@@ -161,9 +180,11 @@ function CatForm() {
                 type="range"
                 min="1"
                 max="5"
+                aria-invalid={!!errors.silliness}
+                aria-describedby={errors.silliness? "error-age" :undefined}
             />
             
-            {errors.silliness && <div role='alert'>{errors.silliness.message}</div>}
+            {errors.silliness && <div id="silliness" role='alert'>{errors.silliness.message}</div>}
         </div>
 
       <button disabled={mutation.isPending} type='submit'>
